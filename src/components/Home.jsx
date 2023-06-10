@@ -4,9 +4,7 @@ import React from 'react';
 const Home = () => {
   return (
     <div style={containerStyle}>
-      <header style={headerStyle}>
-        <h1 style={headerTextStyle}>Flex</h1>
-      </header>
+     
       
       <div style={contentStyle}>
         <h1>Welcome to Flex Fitness</h1>

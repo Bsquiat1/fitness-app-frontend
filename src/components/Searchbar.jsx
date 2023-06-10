@@ -15,21 +15,47 @@ const SearchBar = ({ onClick }) => {
       fetch(`http://localhost:9292/exercises?search=${searchQuery}`)
         .then(response => response.json())
         .then(data => {
-          const filteredExercises = data.results; // Adjust this based on your API response
-          onClick(filteredExercises); // Pass the filtered exercises to the parent component
+          const filteredExercises = data.results; 
+          onClick(filteredExercises); 
         });
     }
   };
 
   return (
-    <div>
+    <div className="container">
       <input
+        
+        required
+        className="input"
+        name="text"
         type="text"
-        placeholder="Search exercises..."
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <button onClick={handleSearch}>Search</button>
+      <div className="icon">
+        <svg
+          viewBox="0 0 512 512"
+          className="ionicon"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <title>Search</title>
+          <path
+            strokeWidth="32"
+            strokeMiterlimit="10"
+            stroke="currentColor"
+            fill="none"
+            d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"
+          ></path>
+          <path
+            d="M338.29 338.29L448 448"
+            strokeWidth="32"
+            strokeMiterlimit="10"
+            strokeLinecap="round"
+            stroke="currentColor"
+            fill="none"
+          ></path>
+        </svg>
+      </div>
     </div>
   );
 };

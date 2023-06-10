@@ -1,53 +1,34 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import SearchBar from './Searchbar';
 
 const Navbar = () => {
   return (
-    <nav className="navbar relative" style={styles.navbar}>
-      
-      <ul style={styles.ul}>
-        <li style={styles.li}>
-          <Link to="/" style={styles.link}>Home</Link>
+    <nav className="navbar relative">
+      <div className="navbar-header">
+        <h1 className="navbar-header-text">FLEX</h1>
+      </div>
+      <ul className="navbar-ul">
+        <li className="navbar-li">
+          <Link to="/" className="navbar-link">Home</Link>
         </li>
-        <li style={styles.li}>
-          <Link to="/workouts" style={styles.link}>Workouts</Link>
+        <li className="navbar-li">
+          <Link to="/workouts" className="navbar-link">Workouts</Link>
         </li>
-        <li style={styles.li}>
-          <Link to="/exercises" style={styles.link}>Exercises</Link>
+        <li className="navbar-li">
+          <Link to="/exercises" className="navbar-link">Exercises</Link>
         </li>
-        <li style={styles.li}>
-          <Link to="/login" style={styles.link}>Login</Link>
+        <li className="navbar-li">
+          <Link to="/login" className="navbar-link">Login</Link>
         </li>
-        <li style={styles.li}>
-          <Link to="/register" style={styles.link}>Register</Link>
+        <li className="navbar-li">
+          <Link to="/register" className="navbar-link">Register</Link>
         </li>
       </ul>
+      <SearchBar />
     </nav>
   );
 };
 
 export default Navbar;
-
-const styles = {
-  navbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    padding: '1rem',
-    backgroundColor: '#007bff',
-    color: '#fff',
-  },
-  ul: {
-    display: 'flex',
-    listStyle: 'none',
-  },
-  li: {
-    marginLeft: '1rem',
-  },
-  link: {
-    color: '#fff',
-    textDecoration: 'none',
-    fontSize: '1rem',
-  },
-};

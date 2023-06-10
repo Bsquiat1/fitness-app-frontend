@@ -56,59 +56,31 @@ const Register = () => {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleRegister} style={styles.form}>
-        <div style={styles.inputContainer}>
-          <label style={styles.label}>Name:</label>
-          <input type="text" value={name} onChange={handleNameChange} style={styles.input} />
+    <div className="login-box">
+      <p>Register</p>
+      <form onSubmit={handleRegister}>
+        <div className="user-box">
+          <input type="text" value={name} onChange={handleNameChange} required />
+          <label>Name:</label>
         </div>
-        <div style={styles.inputContainer}>
-          <label style={styles.label}>Email:</label>
-          <input type="email" value={email} onChange={handleEmailChange} style={styles.input} />
+        <div className="user-box">
+          <input type="email" value={email} onChange={handleEmailChange} required />
+          <label>Email:</label>
         </div>
-        <div style={styles.inputContainer}>
-          <label style={styles.label}>Password:</label>
-          <input type="password" value={password} onChange={handlePasswordChange} style={styles.input} />
+        <div className="user-box">
+          <input type="password" value={password} onChange={handlePasswordChange} required />
+          <label>Password:</label>
         </div>
-        <button type="submit" style={styles.button}>Register</button>
+        <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Register
+    </a>
       </form>
     </div>
   );
 };
 
 export default Register;
-
-const styles = {
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    maxWidth: '300px',
-    margin: '0 auto',
-  },
-  inputContainer: {
-    marginBottom: '1rem',
-  },
-  label: {
-    marginBottom: '0.5rem',
-    fontSize: '1rem',
-    fontWeight: 'bold',
-  },
-  input: {
-    padding: '0.5rem',
-    fontSize: '1rem',
-    borderRadius: '4px',
-    border: '1px solid #ccc',
-  },
-  button: {
-    padding: '0.5rem 1rem',
-    fontSize: '1rem',
-    fontWeight: 'bold',
-    backgroundColor: '#007bff',
-    color: '#fff',
-    border: 'none',
-    borderRadius: '4px',
-    cursor: 'pointer',
-  },
-};
-

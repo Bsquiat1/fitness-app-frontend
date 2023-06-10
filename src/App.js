@@ -13,16 +13,13 @@ import Navbar from './components/Navbar';
 const App = () => {
   const [filteredExercises, setFilteredExercises] = useState([]);
 
-  const handleSearch = (filteredExercises) => {
-    setFilteredExercises(filteredExercises);
-  };
-
+  
   return (
     <Router>
       <div className="App">
         
         <Navbar />
-        <SearchBar onclick={handleSearch} />
+        
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/workouts" element={<WorkoutPlanner />} />
