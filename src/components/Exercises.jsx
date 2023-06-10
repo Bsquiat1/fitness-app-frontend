@@ -42,6 +42,7 @@ const Exercises = () => {
             <h3>{exercise.name}</h3>
             <p>{exercise.description}</p>
             <p className="mb-0">Muscle Group: {exercise.muscle_group}</p>
+            <img src={exercise.image} alt={exercise.name} />
           </li>
         ))}
       </ul>

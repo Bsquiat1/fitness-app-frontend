@@ -1,3 +1,5 @@
+/* Login */
+
 .login-box {
     position: absolute;
     top: 50%;
@@ -178,8 +180,17 @@
     border-radius: 5px;
   }
 
+  .login-container {
+    background-image: url('./background.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-
+/* navbar */
   .navbar {
     display: flex;
     align-items: center;
@@ -226,7 +237,7 @@
   
 
   
-  
+  /* Search bar */
   
   .container {
     position: relative;
