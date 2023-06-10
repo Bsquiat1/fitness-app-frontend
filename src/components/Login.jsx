@@ -49,19 +49,26 @@ const Login = () => {
   };
   
   return (
-    <div style={{ maxWidth: '400px', margin: '0 auto' }}>
-      <h2 style={{ textAlign: 'center' }}>Login</h2>
+    <div class="login-box">
+      <h2 >Login</h2>
       <form onSubmit={handleLogin}>
-        <div style={{ marginBottom: '10px' }}>
+        <div class="user-box">
           <label>Email:</label>
-          <input type="email" value={email} onChange={handleEmailChange} style={{ width: '100%', padding: '5px' }} />
+          <input type="email" value={email} onChange={handleEmailChange}  />
         </div>
-        <div style={{ marginBottom: '10px' }}>
+        <div class="user-box">
           <label>Password:</label>
-          <input type="password" value={password} onChange={handlePasswordChange} style={{ width: '100%', padding: '5px' }} />
+          <input type="password" value={password} onChange={handlePasswordChange}  />
         </div>
-        <button type="submit" style={{ padding: '10px', backgroundColor: 'blue', color: 'white', border: 'none' }}>Login</button>
+        <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+    </a>
       </form>
+      <p>Don't have an account?<a href="" class="a2">Sign up!</a></p>
     </div>
   );
 };
