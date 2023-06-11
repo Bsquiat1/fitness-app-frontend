@@ -22,7 +22,7 @@ const SearchBar = ({ onClick }) => {
   };
 
   return (
-    <div className="container">
+    <div className="containers">
       <input
         
         required

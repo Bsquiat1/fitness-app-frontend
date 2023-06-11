@@ -21,11 +21,11 @@ const Exercises = () => {
     : exercises;
 
   return (
-    <div className="container">
-      <h2 className="mt-4">Exercises</h2>
-      <div className="mb-3">
-        <label className="form-label">Select Body Part:</label>
-        <select className="form-select" value={selectedBodyPart} onChange={handleBodyPartChange}>
+    <div className='exercise-page'>
+      <h2>Exercises</h2>
+      <div>
+        <label>Select Body Part:</label>
+        <select value={selectedBodyPart} onChange={handleBodyPartChange}>
           <option value="">All</option>
           <option value="Chest">Chest</option>
           <option value="Legs">Legs</option>
@@ -36,16 +36,19 @@ const Exercises = () => {
           <option value="Shoulders">Shoulders</option>
         </select>
       </div>
-      <ul className="list-group">
-        {filteredExercises.map((exercise) => (
-          <li className="list-group-item" key={exercise.id}>
-            <h3>{exercise.name}</h3>
+      
+    <div className="container">
+      {filteredExercises.map((exercise) => (
+        <div className="box" key={exercise.id}>
+          <span className="title">{exercise.name}</span>
+          <div>
+            <strong>{exercise.name}</strong>
             <p>{exercise.description}</p>
-            <p className="mb-0">Muscle Group: {exercise.muscle_group}</p>
-            <img src={exercise.image} alt={exercise.name} />
-          </li>
-        ))}
-      </ul>
+            <span>Muscle Group: {exercise.muscle_group}</span>
+          </div>
+        </div>
+      ))}
+    </div>
     </div>
   );
 };
