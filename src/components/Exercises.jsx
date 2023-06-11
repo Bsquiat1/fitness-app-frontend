@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
   const [selectedBodyPart, setSelectedBodyPart] = useState('');
+  const [likedExercises, setLikedExercises] = useState([]);
 
   useEffect(() => {
     // Fetch exercises from the backend
@@ -16,14 +17,23 @@ const Exercises = () => {
     setSelectedBodyPart(e.target.value);
   };
 
+  const handleLikeExercise = (exerciseId) => {
+    if (likedExercises.includes(exerciseId)) {
+      // Unlike exercise
+      setLikedExercises(likedExercises.filter((id) => id !== exerciseId));
+    } else {
+      // Like exercise
+      setLikedExercises([...likedExercises, exerciseId]);
+    }
+  };
+
   const filteredExercises = selectedBodyPart
     ? exercises.filter((exercise) => exercise.muscle_group === selectedBodyPart)
     : exercises;
 
   return (
     <div className='exercise-page'>
-      <h2>Exercises</h2>
-      <div>
+      <div className="select-container">
         <label>Select Body Part:</label>
         <select value={selectedBodyPart} onChange={handleBodyPartChange}>
           <option value="">All</option>
@@ -36,19 +46,25 @@ const Exercises = () => {
           <option value="Shoulders">Shoulders</option>
         </select>
       </div>
-      
-    <div className="container">
-      {filteredExercises.map((exercise) => (
-        <div className="box" key={exercise.id}>
-          <span className="title">{exercise.name}</span>
-          <div>
-            <strong>{exercise.name}</strong>
-            <p>{exercise.description}</p>
-            <span>Muscle Group: {exercise.muscle_group}</span>
+
+      <div className="container">
+        {filteredExercises.map((exercise) => (
+          <div className="box" key={exercise.id}>
+            <span className="title">{exercise.name}</span>
+            <div>
+              <strong>{exercise.name}</strong>
+              <p>{exercise.description}</p>
+              <span>Muscle Group: {exercise.muscle_group}</span>
+              <button
+                onClick={() => handleLikeExercise(exercise.id)}
+                className={`like-button ${likedExercises.includes(exercise.id) ? 'liked' : ''}`}
+              >
+                {likedExercises.includes(exercise.id) ? '❤️ ' : '🤍 '}
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
-    </div>
+        ))}
+      </div>
     </div>
   );
 };
