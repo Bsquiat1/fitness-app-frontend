@@ -9,6 +9,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import SearchBar from './components/Searchbar';
 import Navbar from './components/Navbar';
+import MagicMouseComponent from './components/MagicMouseComponent';
 
 const App = () => {
   const [filteredExercises, setFilteredExercises] = useState([]);
@@ -17,6 +18,7 @@ const App = () => {
   return (
     <Router>
       <div className="App">
+        <MagicMouseComponent />
         
         <Navbar />
         

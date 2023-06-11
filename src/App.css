@@ -299,4 +299,8 @@
     height: 100%;
   }
   
+  /* magic mouse */
+  html, * {
+    cursor: none;
+  }
   
