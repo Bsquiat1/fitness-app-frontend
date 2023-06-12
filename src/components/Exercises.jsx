@@ -6,7 +6,7 @@ const Exercises = () => {
   const [likedExercises, setLikedExercises] = useState([]);
 
   useEffect(() => {
-    // Fetch exercises from the backend
+    
     fetch('http://localhost:9292/exercises')
       .then((response) => response.json())
       .then((data) => setExercises(data))
@@ -19,10 +19,10 @@ const Exercises = () => {
 
   const handleLikeExercise = (exerciseId) => {
     if (likedExercises.includes(exerciseId)) {
-      // Unlike exercise
+      
       setLikedExercises(likedExercises.filter((id) => id !== exerciseId));
     } else {
-      // Like exercise
+      
       setLikedExercises([...likedExercises, exerciseId]);
     }
   };
