@@ -32,7 +32,7 @@
     width: 100%;
     padding: 10px 0;
     font-size: 16px;
-    color: #fff;
+    color: #fcf8f8;
     margin-bottom: 30px;
     border: none;
     border-bottom: 1px solid #fff;
@@ -193,7 +193,7 @@
   /* register */
 
   .register-container {
-    background-image: url('./welcome.jpg'); /* Adjust the path if necessary */
+    background-image: url('./welcome.jpg'); 
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -339,8 +339,8 @@
   }
   
   .container .box {
-    width: 40.875em;
-    height: 24.875em;
+    width: 50.875em;
+    height: 60.875em;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.074);
     border: 1px solid rgba(255, 255, 255, 0.222);
@@ -403,7 +403,7 @@
   
   .container::-webkit-scrollbar {
     width: 8px;
-    background-color: #f2f2f2;
+    background-color: #8494a4;
   }
   
   .container::-webkit-scrollbar-thumb {
@@ -471,5 +471,12 @@
   .like-button:focus {
     outline: none;
   }
+
+  .container img {
+    width: 100%; 
+    height: auto;
+    object-fit: cover; 
+  }
+  
   
   

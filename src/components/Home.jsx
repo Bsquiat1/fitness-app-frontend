@@ -14,7 +14,7 @@ const Home = () => {
   );
 };
 
-// Define the styles
+
 const containerStyle = {
   display: 'flex',
   flexDirection: 'column',

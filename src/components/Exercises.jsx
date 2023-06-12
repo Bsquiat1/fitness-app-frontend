@@ -50,17 +50,19 @@ const Exercises = () => {
       <div className="container">
         {filteredExercises.map((exercise) => (
           <div className="box" key={exercise.id}>
-            <span className="title">{exercise.name}</span>
-            <div>
-              <strong>{exercise.name}</strong>
-              <p>{exercise.description}</p>
-              <span>Muscle Group: {exercise.muscle_group}</span>
-              <button
+            <span className="title">{exercise.name}<button
                 onClick={() => handleLikeExercise(exercise.id)}
                 className={`like-button ${likedExercises.includes(exercise.id) ? 'liked' : ''}`}
               >
                 {likedExercises.includes(exercise.id) ? '❤️ ' : '🤍 '}
-              </button>
+              </button></span>
+            
+            <div>
+              {/* <strong>{exercise.name}</strong> */}
+              <p>{exercise.description}</p>
+              <span>Muscle Group: {exercise.muscle_group}</span>
+              <img src={exercise.image} alt={exercise.name} />
+              
             </div>
           </div>
         ))}
