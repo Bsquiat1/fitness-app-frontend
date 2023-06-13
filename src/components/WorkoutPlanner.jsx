@@ -7,10 +7,8 @@ const WorkoutPlanner = () => {
   const [reps, setReps] = useState(0);
   const [duration, setDuration] = useState(0);
   const [workouts, setWorkouts] = useState([]);
-  const [workoutId, setWorkoutId] = useState(null);
 
   useEffect(() => {
-    
     fetch('http://localhost:9292/workouts')
       .then((response) => response.json())
       .then((data) => setWorkouts(data))
@@ -18,27 +16,6 @@ const WorkoutPlanner = () => {
   }, []);
 
   useEffect(() => {
-     
-      fetch('http://localhost:9292/workouts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify,
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log('Workout posted successfully!');
-          // Handle any further actions after posting the workout
-        })
-        .catch((error) => console.log(error));
-    
-  }, []);
-  
-
-
-  useEffect(() => {
-    // Fetch exercises from the backend
     fetch('http://localhost:9292/exercises')
       .then((response) => response.json())
       .then((data) => setExercises(data))
@@ -70,21 +47,58 @@ const WorkoutPlanner = () => {
         reps,
         duration,
       };
-  
+
       setWorkouts([...workouts, exerciseWithDetails]);
       setSelectedExercise('');
       setSets(0);
       setReps(0);
       setDuration(0);
-  
-      if (!workoutId) {
-        // Generate a workout ID
-        const newWorkoutId = Math.floor(Math.random() * 1000);
-        setWorkoutId(newWorkoutId);
-      }
+
+      fetch('http://localhost:9292/workouts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(exerciseWithDetails),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Workout added successfully!');
+          
+        })
+        .catch((error) => console.log(error));
     }
   };
-  
+
+  const handleDeleteWorkout = (exerciseId) => {
+    const updatedWorkouts = workouts.filter((exercise) => exercise.id !== exerciseId);
+    setWorkouts(updatedWorkouts);
+
+    fetch(`http://localhost:9292/workouts/${exerciseId}`, {
+      method: 'DELETE',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('Workout deleted successfully!');
+        
+      })
+      .catch((error) => console.log(error));
+  };
+
+  const handleDeleteAllWorkouts = () => {
+    setWorkouts([]);
+
+    fetch('http://localhost:9292/workouts', {
+      method: 'DELETE',
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('All workouts deleted successfully!');
+        
+      })
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div>
       <h2>Workout Planner</h2>
@@ -111,9 +125,11 @@ const WorkoutPlanner = () => {
         {workouts.map((exercise) => (
           <li key={exercise.id}>
             {exercise.name} - Sets: {exercise.sets}, Reps: {exercise.reps}, Duration: {exercise.duration} seconds
+            <button onClick={() => handleDeleteWorkout(exercise.id)}>Delete</button>
           </li>
         ))}
       </ul>
+      <button onClick={handleDeleteAllWorkouts}>Delete All</button>
     </div>
   );
 };
