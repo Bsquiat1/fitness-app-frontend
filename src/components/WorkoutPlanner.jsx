@@ -6,7 +6,36 @@ const WorkoutPlanner = () => {
   const [sets, setSets] = useState(0);
   const [reps, setReps] = useState(0);
   const [duration, setDuration] = useState(0);
-  const [workoutExercises, setWorkoutExercises] = useState([]);
+  const [workouts, setWorkouts] = useState([]);
+  const [workoutId, setWorkoutId] = useState(null);
+
+  useEffect(() => {
+    
+    fetch('http://localhost:9292/workouts')
+      .then((response) => response.json())
+      .then((data) => setWorkouts(data))
+      .catch((error) => console.log(error));
+  }, []);
+
+  useEffect(() => {
+     
+      fetch('http://localhost:9292/workouts', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Workout posted successfully!');
+          // Handle any further actions after posting the workout
+        })
+        .catch((error) => console.log(error));
+    
+  }, []);
+  
+
 
   useEffect(() => {
     // Fetch exercises from the backend
@@ -41,14 +70,21 @@ const WorkoutPlanner = () => {
         reps,
         duration,
       };
-      setWorkoutExercises([...workoutExercises, exerciseWithDetails]);
+  
+      setWorkouts([...workouts, exerciseWithDetails]);
       setSelectedExercise('');
       setSets(0);
       setReps(0);
       setDuration(0);
+  
+      if (!workoutId) {
+        // Generate a workout ID
+        const newWorkoutId = Math.floor(Math.random() * 1000);
+        setWorkoutId(newWorkoutId);
+      }
     }
   };
-
+  
   return (
     <div>
       <h2>Workout Planner</h2>
@@ -72,7 +108,7 @@ const WorkoutPlanner = () => {
       </div>
       <h3>Workout Exercises:</h3>
       <ul>
-        {workoutExercises.map((exercise) => (
+        {workouts.map((exercise) => (
           <li key={exercise.id}>
             {exercise.name} - Sets: {exercise.sets}, Reps: {exercise.reps}, Duration: {exercise.duration} seconds
           </li>

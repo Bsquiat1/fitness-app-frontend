@@ -309,7 +309,7 @@
 
   .container {
     position: relative;
-    font-family: sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
     overflow-y: scroll;
     scroll-behavior: smooth;
   }
@@ -427,7 +427,7 @@
     font-size: 1.4rem;
     margin-right: 0.5rem;
     color: rgb(14, 14, 14);
-    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
 
     align-self: flex-start;
   }
@@ -491,6 +491,7 @@
    */
    body {
     margin: 0;
+    padding: 0;
   }
   
   .wrapper {
@@ -506,14 +507,14 @@
     background-position: center;
     padding: 20px;
     color: #fff;
-    height: 500px; /* Increased height */
+    height: 500px; 
     
   }
   
   .about {
-    background-color: rgb(192, 209, 226);
+    background-image: url(training.jpg);
     padding: 20px;
-    height: 500px; /* Increased height */
+    height: 500px;
   }
   
   .features {
@@ -521,15 +522,21 @@
     background-image: url(pushups.jpg);
     padding: 20px;
     color: #fff;
-    height: 600px; /* Increased height */
+    height: 600px; 
     font-family: 'IBM Plex Mono', monospace;
     font-size: 20px;
   }
   
   .footer {
-    background-color: rgb(192, 209, 226);
+    background-image: url(training.jpg);
     padding: 20px;
-    height: 500px; /* Increased height */
+    height: 500px; 
+    margin-bottom: 0;
+  }
+  .footer img {
+    display: block;
+    margin: 0;
+    padding: 0;
   }
   
   .home-h1,

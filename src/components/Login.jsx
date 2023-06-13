@@ -57,7 +57,7 @@ const Login = () => {
     
     
     <div class="login-box">
-      <h2 >Login</h2>
+      <p >Login</p>
       <form onSubmit={handleLogin}>
         <div class="user-box">
           <label>Email:</label>
