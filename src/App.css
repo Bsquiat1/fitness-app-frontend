@@ -504,44 +504,54 @@
     background-image: url('./boxing.jpg');
     background-size: cover;
     background-position: center;
-    margin-bottom: 0;
+    padding: 20px;
+    color: #fff;
+    height: 500px; /* Increased height */
+    
   }
   
   .about {
-    background-color: antiquewhite;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 0;
+    background-color: rgb(192, 209, 226);
+    padding: 20px;
+    height: 500px; /* Increased height */
   }
   
   .features {
-    background-color: #191A1E;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 0;
+    
+    background-image: url(pushups.jpg);
+    padding: 20px;
+    color: #fff;
+    height: 600px; /* Increased height */
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 20px;
   }
   
-  .contact {
-    background-color: #adaeb1;
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 0;
+  .footer {
+    background-color: rgb(192, 209, 226);
+    padding: 20px;
+    height: 500px; /* Increased height */
   }
   
   .home-h1,
   h2 {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 100px;
     font-weight: bold;
-    color: #333;
+    color: #f8f5f5;
     margin-bottom: 0;
   }
   
   .home-p {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    color: #777;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 50px;
+    color: #923b3b;
     line-height: 1.5;
     margin-bottom: 0;
+  }
+
+  .home-h3 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 50px;
   }
   
   .home-ul {
@@ -551,9 +561,9 @@
   }
   
   .home-li {
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    color: #333;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 55px;
+    color: #f1eded;
     margin-bottom: 0;
   }
   
