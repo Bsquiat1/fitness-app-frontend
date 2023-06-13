@@ -477,6 +477,92 @@
     height: auto;
     object-fit: cover; 
   }
+  /* Home page */
   
+  /* body {
+    color: #3f3b37;
+    cursor: none;
+    background-color: #c1c0b6;
+    font-family: Neuehaasdisplayroman, sans-serif;
+    font-size: 1vw;
+    line-height: 1;
+    margin: 0;
+  }
+   */
+   body {
+    margin: 0;
+  }
   
+  .wrapper {
+    max-width: 2150px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .heading {
+    text-align: center;
+    background-image: url('./boxing.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0;
+  }
+  
+  .about {
+    background-color: antiquewhite;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0;
+  }
+  
+  .features {
+    background-color: #191A1E;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0;
+  }
+  
+  .contact {
+    background-color: #adaeb1;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0;
+  }
+  
+  .home-h1,
+  h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+  }
+  
+  .home-p {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 0;
+  }
+  
+  .home-ul {
+    list-style: disc;
+    margin-left: 20px;
+    margin-bottom: 0;
+  }
+  
+  .home-li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 0;
+  }
+  
+  .home-a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .home-a:hover {
+    text-decoration: underline;
+  }
   
