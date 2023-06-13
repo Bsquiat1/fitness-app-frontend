@@ -17,11 +17,12 @@
   .login-box p:first-child {
     margin: 0 0 30px;
     padding: 0;
-    color: #fff;
+    color: #f9f7f7;
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     letter-spacing: 1px;
+    font-family: 'IBM Plex Mono', monospace;
   }
   
   .login-box .user-box {
@@ -38,6 +39,8 @@
     border-bottom: 1px solid #fff;
     outline: none;
     background: transparent;
+    font-family: 'IBM Plex Mono', monospace;
+    
   }
   
   .login-box .user-box label {
@@ -49,6 +52,7 @@
     color: #fff;
     pointer-events: none;
     transition: .5s;
+    font-family: 'IBM Plex Mono', monospace;
   }
   
   .login-box .user-box input:focus ~ label,
@@ -56,7 +60,8 @@
     top: -20px;
     left: 0;
     color: #fff;
-    font-size: 12px;
+    font-size: 20px;
+    font-family: 'IBM Plex Mono', monospace;
   }
   
   .login-box form a {
@@ -71,7 +76,8 @@
     overflow: hidden;
     transition: .5s;
     margin-top: 40px;
-    letter-spacing: 3px
+    letter-spacing: 3px;
+    font-family: 'IBM Plex Mono', monospace;
   }
   
   .login-box a:hover {
@@ -167,6 +173,7 @@
   .login-box p:last-child {
     color: #aaa;
     font-size: 14px;
+    font-family: 'IBM Plex Mono', monospace;
   }
   
   .login-box a.a2 {
