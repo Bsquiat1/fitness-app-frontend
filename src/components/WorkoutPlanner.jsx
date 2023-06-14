@@ -107,14 +107,14 @@ const WorkoutPlanner = () => {
   };
 
   return (
-    <div>
+    <div className="workout-planner">
       <h2>Workout Planner</h2>
-      <div>
-        <label>Exercise:</label>
+      <div className="input-group">
+        <label>Exercise name:</label>
         <input
-           type="text"
-           value={selectedExercise}
-           onChange={handleExerciseChange}
+          type="text"
+          value={selectedExercise}
+          onChange={handleExerciseChange}
           placeholder="Enter exercise name"
         />
 
@@ -122,22 +122,23 @@ const WorkoutPlanner = () => {
         <input type="number" value={sets} onChange={handleSetsChange} />
         <label>Reps:</label>
         <input type="number" value={reps} onChange={handleRepsChange} />
-        <label>Duration (in seconds):</label>
+        <label>Duration (in minutes):</label>
         <input type="number" value={duration} onChange={handleDurationChange} />
-        <button onClick={handleAddExercise}>Add Exercise</button>
+        <button className='btn' onClick={handleAddExercise}>Add Exercise</button>
       </div>
       <h3>Workout Exercises:</h3>
-      <ul>
+      <ul className="workout-list">
         {workouts.map((workout) => (
           <li key={workout.id}>
             {workout.name} - Sets: {workout.sets}, Reps: {workout.reps}, Duration: {workout.duration} minutes
-            <button onClick={() => handleDeleteWorkout(workout.id)}>Delete</button>
+            <button className='delete-button' onClick={() => handleDeleteWorkout(workout.id)}><span class="X"></span>
+  <span class="Y"></span>
+  <div class="close">Close</div></button>
           </li>
         ))}
       </ul>
-      <button onClick={handleDeleteAllWorkouts}>Delete All</button>
+      <button className='delete-all' onClick={handleDeleteAllWorkouts}> Delete all</button>
     </div>
   );
 };
-
 export default WorkoutPlanner;

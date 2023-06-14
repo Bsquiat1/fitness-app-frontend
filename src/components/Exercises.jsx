@@ -59,7 +59,7 @@ const Exercises = () => {
               </button></span>
             
             <div>
-              {/* <strong>{exercise.name}</strong> */}
+              
               <p>{exercise.description}</p>
               <span>Muscle Group: {exercise.muscle_group}</span>
               <img src={exercise.image} alt={exercise.name} />

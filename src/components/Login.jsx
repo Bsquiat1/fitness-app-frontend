@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -37,6 +38,7 @@ const Login = () => {
           // Reset the form
           setEmail('');
           setPassword('');
+          navigate('/home')
         } else {
           // Login failed
           console.log('Login failed');
@@ -60,12 +62,12 @@ const Login = () => {
       <p >Login</p>
       <form onSubmit={handleLogin}>
         <div class="user-box">
-          <label>Email:</label>
-          <input type="email" value={email} onChange={handleEmailChange}  />
+          <label></label>
+          <input type="email" value={email} onChange={handleEmailChange} placeholder='Email:' />
         </div>
         <div class="user-box">
-          <label>Password:</label>
-          <input type="password" value={password} onChange={handlePasswordChange}  />
+          <label></label>
+          <input type="password" value={password} onChange={handlePasswordChange} placeholder='Password:' />
         </div>
         <a href="#">
       <span></span>

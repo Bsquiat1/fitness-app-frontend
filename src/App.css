@@ -486,16 +486,7 @@
   }
   /* Home page */
   
-  /* body {
-    color: #3f3b37;
-    cursor: none;
-    background-color: #c1c0b6;
-    font-family: Neuehaasdisplayroman, sans-serif;
-    font-size: 1vw;
-    line-height: 1;
-    margin: 0;
-  }
-   */
+ 
    body {
     margin: 0;
     padding: 0;
@@ -590,6 +581,219 @@
     text-decoration: underline;
   }
   
-  /* workout */
+  /* workout planner */
 
+  .delete-button {
+    position: relative;
+    width: 6em;
+    height: 4em;
+    border: none;
+    background: none;
+  }
   
+  .X {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 2em;
+    height: 1.5px;
+    background-color: #f9f4f4;
+    transform: rotate(45deg);
+  }
+  
+  .Y {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 2em;
+    height: 1.5px;
+    background-color: #f9f4f4;
+    transform: rotate(-45deg);
+  }
+  
+  .close {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: -40%;
+    left: 70%;
+    width: 3em;
+    height: 1.7em;
+    font-size: 16px;
+    background-color: rgb(254, 255, 225);
+    color: #000;
+    border: 1px solid #000;
+    pointer-events: none;
+    opacity: 0;
+  }
+  
+  .delete-button:hover {
+    background-color: rgb(210, 0, 0);
+  }
+  
+  .delete-button:active {
+    background-color: rgb(130, 0, 0);
+  }
+  
+  .delete-button:hover > .close {
+    animation: close 0.2s forwards 1.25s;
+  }
+  
+  @keyframes close {
+    100% {
+      opacity: 1;
+    }
+  }
+
+  .delete-all {
+    position: relative;
+    font-family: 'IBM Plex Mono', monospace;
+    padding: 12px 40px;
+    border: 0;
+    background: rgb(148, 1, 1);
+    color: #f5f3f3;
+    font-weight: 500;
+    font-size: 1.7em;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    
+  }
+  
+  .delete-all:hover {
+    text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.562);
+    transform: scale(1.01);
+    box-shadow: inset 0px 0px 10px rgba(255, 0, 0, 0.575);
+  }
+  
+  .delete-all::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100px;
+    width: 50%;
+    height: 100%;
+    transform: rotate(80deg);
+    background: #ffffff77;
+    filter: blur(10px);
+    transition: 0.6s ease-in-out;
+  }
+  
+  .delete-all:hover::after {
+    left: 100%;
+  }
+
+  .input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.input-group label {
+  font-size: 1.4rem;
+  margin-right: 0.5rem;
+  color: #0e0e0e;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+.input-group input,
+.input-group select {
+  padding: 0.75rem;
+  font-size: 1.2rem;
+  border-radius: 4px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  margin-right: 0.5rem; 
+}
+
+.input-group input::placeholder,
+.input-group select option {
+  color: rgba(255, 255, 255, 0.7);
+}
+.workout-list {
+  list-style: none;
+  padding: 0;
+}
+
+.workout-list  {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.workout-list   {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 50px;
+  padding: 0.5em 1em;
+  border: none;
+  flex-direction: column;
+  color: #0e0d0d;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.workout-planner h3 {
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 70px;
+
+}
+
+.workout-planner h2 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 100px;
+  color: #820c22;
+
+}
+.workout-planner {
+  background-image: url('./wall.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 2;
+  left: 0;
+}
+
+.btn {
+  background-image: linear-gradient(45deg, #FF512F 0%, #F09819  51%, #FF512F  100%)
+ }
+ 
+ .btn {
+  margin: 10px;
+  padding: 15px 30px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  border-radius: 10px;
+  display: block;
+  border: 0px;
+  font-weight: 800;
+  box-shadow: 0px 0px 14px -7px #f09819;
+  
+ }
+ 
+ .btn:hover {
+  background-position: right center;
+  
+  color: #fff;
+  text-decoration: none;
+ }
+ 
+ .btn:active {
+  transform: scale(0.95);
+ }
+
+
+
