@@ -41,8 +41,11 @@ const WorkoutPlanner = () => {
     setDuration(parseInt(e.target.value, 10));
     
   };
+  
 
   const handleAddExercise = () => {
+    
+  
     fetch('http://localhost:9292/workouts', {
       method: 'POST',
       headers: {
@@ -107,15 +110,14 @@ const WorkoutPlanner = () => {
     <div>
       <h2>Workout Planner</h2>
       <div>
-        <label>Select Exercise:</label>
-        <select value={selectedExercise} onChange={handleExerciseChange}>
-          <option value="">Select an exercise</option>
-          {exercises.map((exercise) => (
-            <option key={exercise.id} value={exercise.id}>
-              {exercise.name}
-            </option>
-          ))}
-        </select>
+        <label>Exercise:</label>
+        <input
+           type="text"
+           value={selectedExercise}
+           onChange={handleExerciseChange}
+          placeholder="Enter exercise name"
+        />
+
         <label>Sets:</label>
         <input type="number" value={sets} onChange={handleSetsChange} />
         <label>Reps:</label>
