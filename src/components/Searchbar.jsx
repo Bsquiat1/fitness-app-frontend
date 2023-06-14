@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const SearchBar = ({ onClick }) => {
+const SearchBar = () => {
   const [searchTerm, setSearchTerm] = useState('');
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     const term = e.target.value;
@@ -11,12 +13,12 @@ const SearchBar = ({ onClick }) => {
   const handleSearch = () => {
     const searchQuery = searchTerm.trim().toLowerCase();
     if (searchQuery) {
-      // Make your API request here with the appropriate URL and query parameters
       fetch(`http://localhost:9292/exercises?search=${searchQuery}`)
-        .then(response => response.json())
-        .then(data => {
-          const filteredExercises = data.results; 
-          onClick(filteredExercises); 
+        .then((response) => response.json())
+        .then((data) => {
+          const filteredExercises = data.results;
+         
+          navigate('/exercises', { state: { filteredExercises } });
         });
     }
   };
@@ -24,7 +26,6 @@ const SearchBar = ({ onClick }) => {
   return (
     <div className="containers">
       <input
-        
         required
         className="input"
         name="text"
@@ -32,7 +33,7 @@ const SearchBar = ({ onClick }) => {
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <div className="icon">
+      <div className="icon" onClick={handleSearch}>
         <svg
           viewBox="0 0 512 512"
           className="ionicon"

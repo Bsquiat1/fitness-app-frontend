@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
+
 const Exercises = () => {
   const [exercises, setExercises] = useState([]);
   const [selectedBodyPart, setSelectedBodyPart] = useState('');

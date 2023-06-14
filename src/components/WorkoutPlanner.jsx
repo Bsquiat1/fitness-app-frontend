@@ -24,55 +24,61 @@ const WorkoutPlanner = () => {
 
   const handleExerciseChange = (e) => {
     setSelectedExercise(e.target.value);
+    
   };
 
   const handleSetsChange = (e) => {
     setSets(parseInt(e.target.value, 10));
+    
   };
 
   const handleRepsChange = (e) => {
     setReps(parseInt(e.target.value, 10));
+    
   };
 
   const handleDurationChange = (e) => {
     setDuration(parseInt(e.target.value, 10));
+    
   };
 
   const handleAddExercise = () => {
-    const exerciseToAdd = exercises.find((exercise) => exercise.id === selectedExercise);
-    if (exerciseToAdd) {
-      const exerciseWithDetails = {
-        ...exerciseToAdd,
+    fetch('http://localhost:9292/workouts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: selectedExercise,
         sets,
         reps,
         duration,
-      };
-
-      setWorkouts([...workouts, exerciseWithDetails]);
-      setSelectedExercise('');
-      setSets(0);
-      setReps(0);
-      setDuration(0);
-
-      fetch('http://localhost:9292/workouts', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(exerciseWithDetails),
-      })
-        .then((response) => response.json())
-        .then((data) => {
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
           console.log('Workout added successfully!');
-          
-        })
-        .catch((error) => console.log(error));
-    }
+          return response.json();
+        } else {
+          throw new Error('Failed to add workout');
+        }
+      })
+      .then((data) => {
+        // Update the workouts state with the added exercise
+        setWorkouts([...workouts, data]);
+  
+        // Reset input values
+        setSelectedExercise('')
+        setSets(0);
+        setReps(0);
+        setDuration(0);
+      })
+      .catch((error) => console.log(error));
   };
-
+  
+  
   const handleDeleteWorkout = (exerciseId) => {
-    const updatedWorkouts = workouts.filter((exercise) => exercise.id !== exerciseId);
-    setWorkouts(updatedWorkouts);
+    
 
     fetch(`http://localhost:9292/workouts/${exerciseId}`, {
       method: 'DELETE',
@@ -80,7 +86,6 @@ const WorkoutPlanner = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log('Workout deleted successfully!');
-        
       })
       .catch((error) => console.log(error));
   };
@@ -94,7 +99,6 @@ const WorkoutPlanner = () => {
       .then((response) => response.json())
       .then((data) => {
         console.log('All workouts deleted successfully!');
-        
       })
       .catch((error) => console.log(error));
   };
@@ -122,10 +126,10 @@ const WorkoutPlanner = () => {
       </div>
       <h3>Workout Exercises:</h3>
       <ul>
-        {workouts.map((exercise) => (
-          <li key={exercise.id}>
-            {exercise.name} - Sets: {exercise.sets}, Reps: {exercise.reps}, Duration: {exercise.duration} seconds
-            <button onClick={() => handleDeleteWorkout(exercise.id)}>Delete</button>
+        {workouts.map((workout) => (
+          <li key={workout.id}>
+            {workout.name} - Sets: {workout.sets}, Reps: {workout.reps}, Duration: {workout.duration} minutes
+            <button onClick={() => handleDeleteWorkout(workout.id)}>Delete</button>
           </li>
         ))}
       </ul>
