@@ -726,7 +726,7 @@
 
 .workout-list   {
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 50px;
+  font-size: 40px;
   padding: 0.5em 1em;
   border: none;
   flex-direction: column;
@@ -738,7 +738,7 @@
 .workout-planner h3 {
 
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 70px;
+  font-size: 60px;
 
 }
 
