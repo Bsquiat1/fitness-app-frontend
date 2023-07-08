@@ -496,11 +496,11 @@
   
   .heading {
     text-align: center;
-    background-image: url('./boxing.jpg');
+    background-image: url('boxing.jpg');
     background-size: cover;
     background-position: center;
     padding: 20px;
-    color: #fff;
+    color: #0e0e0e;
     height: 500px; 
     
   }
@@ -538,14 +538,14 @@
     font-family: 'IBM Plex Mono', monospace;
     font-size: 100px;
     font-weight: bold;
-    color: #f8f5f5;
+    color: #0d89f5;
     margin-bottom: 0;
   }
   
   .home-p {
     font-family: 'IBM Plex Mono', monospace;
     font-size: 50px;
-    color: #923b3b;
+    color: #a22a2a;
     line-height: 1.5;
     margin-bottom: 0;
   }
@@ -765,8 +765,8 @@
  }
  
  .btn {
-  margin: 10px;
-  padding: 15px 30px;
+  margin: o auto;
+  padding: 18px 80px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -790,6 +790,7 @@
  .btn:active {
   transform: scale(0.95);
  }
+ 
 
 
 
