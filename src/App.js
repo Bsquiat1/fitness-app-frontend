@@ -8,16 +8,17 @@ import Exercises from './components/Exercises';
 import Login from './components/Login';
 import Register from './components/Register';
 import Navbar from './components/Navbar';
-// import MagicMouseComponent from './components/MagicMouseComponent';
+
 
 const App = () => {
+  
   
 
   
   return (
     <Router>
       <div className="App">
-        {/* <MagicMouseComponent /> */}
+        
         
         <Navbar />
         

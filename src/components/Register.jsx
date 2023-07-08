@@ -1,20 +1,20 @@
 import React, { useState } from 'react';
 
 const Register = () => {
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password_digest, setPassword_digest] = useState('');
 
-  const handleNameChange = (e) => {
-    setName(e.target.value);
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
   };
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handlePassword_digestChange = (e) => {
+    setPassword_digest(e.target.value);
   };
 
   const handleRegister = (e) => {
@@ -22,13 +22,13 @@ const Register = () => {
 
     // Prepare the registration data
     const registrationData = {
-      name,
+      username,
       email,
-      password,
+      password_digest,
     };
 
     // Send the registration request to the API
-    fetch('http://localhost:9292/register', {
+    fetch('/register', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -40,9 +40,9 @@ const Register = () => {
           // Registration successful
           console.log('Registration successful');
           // Reset the form
-          setName('');
+          setUsername('');
           setEmail('');
-          setPassword('');
+          setPassword_digest('');
         } else {
           // Registration failed
           console.log('Registration failed');
@@ -57,33 +57,32 @@ const Register = () => {
 
   return (
     <div className="register-container">
-    <div className="register-content">
-
-    <div className="login-box">
-      <p>Register</p>
-      <form onSubmit={handleRegister}>
-        <div className="user-box">
-          <input type="text" value={name} onChange={handleNameChange} required />
-          <label>Name:</label>
+      <div className="register-content">
+        <div className="login-box">
+          <p>Register</p>
+          <form onSubmit={handleRegister}>
+            <div className="user-box">
+              <input type="text" value={username} onChange={handleUsernameChange} required />
+              <label>Name:</label>
+            </div>
+            <div className="user-box">
+              <input type="email" value={email} onChange={handleEmailChange} required />
+              <label>Email:</label>
+            </div>
+            <div className="user-box">
+              <input type="password" value={password_digest} onChange={handlePassword_digestChange} required />
+              <label>Password:</label>
+            </div>
+            <a href="#" onClick={handleRegister}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Register
+            </a>
+          </form>
         </div>
-        <div className="user-box">
-          <input type="email" value={email} onChange={handleEmailChange} required />
-          <label>Email:</label>
-        </div>
-        <div className="user-box">
-          <input type="password" value={password} onChange={handlePasswordChange} required />
-          <label>Password:</label>
-        </div>
-        <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Register
-    </a>
-      </form>
-    </div>
-    </div>
+      </div>
     </div>
   );
 };

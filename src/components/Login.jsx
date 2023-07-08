@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Login = () => {
+function Login({ onLogin }) {
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [password_digest, setPassword_digest] = useState('');
   const navigate = useNavigate();
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
+  const handlePassword_digestChange = (e) => {
+    setPassword_digest(e.target.value);
   };
 
   const handleLogin = (e) => {
     e.preventDefault();
-  
-    // Prepare the login data
+
+   
     const loginData = {
       email,
-      password,
+      password_digest,
     };
-  
-    // Send the login request to the API
-    fetch('http://localhost:9292/login', {
+
+    
+    fetch('/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -33,60 +33,68 @@ const Login = () => {
     })
       .then((response) => {
         if (response.ok) {
-          // Login successful
           console.log('Login successful');
-          // Reset the form
           setEmail('');
-          setPassword('');
-          navigate('/home')
+          setPassword_digest('');
+          navigate('/home');
+          return response.json();
         } else {
-          // Login failed
           console.log('Login failed');
-          // Handle the login failure, show error message, etc.
+          
         }
+      })
+      .then((user) => {
+        
+        onLogin(user);
       })
       .catch((error) => {
         console.log('Login error:', error);
-        // Handle any errors that occurred during login
+       
       });
   };
-  
+
   return (
-
     <div className="login-container">
-    <div className="login-content">
-
-    
-    
-    <div class="login-box">
-      <p >Login</p>
-      <form onSubmit={handleLogin}>
-        <div class="user-box">
-          <label></label>
-          <input type="email" value={email} onChange={handleEmailChange} placeholder='Email:' />
+      <div className="login-content">
+        <div className="login-box">
+          <p>Login</p>
+          <form onSubmit={handleLogin}>
+            <div className="user-box">
+              
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                placeholder="Email"
+              />
+            </div>
+            <div className="user-box">
+              
+              <input
+                type="password_digest"
+                value={password_digest}
+                onChange={handlePassword_digestChange}
+                placeholder="Password."
+              />
+            </div>
+            <a href="#" onClick={handleLogin}>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              Login
+            </a>
+          </form>
+          <p>
+            Don't have an account?{' '}
+            <Link to="/register" className="a2">
+              Sign up!
+            </Link>
+          </p>
         </div>
-        <div class="user-box">
-          <label></label>
-          <input type="password" value={password} onChange={handlePasswordChange} placeholder='Password:' />
-        </div>
-        <a href="#">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      Login
-    </a>
-      </form>
-      <p>
-        Don't have an account?
-        <Link to="/register" className="a2">
-          Sign up!
-        </Link>
-      </p>
-    </div>
-    </div>
+      </div>
     </div>
   );
-};
+}
 
 export default Login;
