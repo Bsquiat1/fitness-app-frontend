@@ -683,24 +683,30 @@
     left: 100%;
   }
 
-  .input-group {
+  .card h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 3.5rem ;
+
+  }
+
+  .card {
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
   position: relative;
 }
 
-.input-group label {
+.card label {
   font-size: 1.4rem;
   margin-right: 0.5rem;
-  color: #0e0e0e;
+  color: #eda109;
   font-family: 'IBM Plex Mono', monospace;
 }
 
-.input-group input,
-.input-group select {
+.card input,
+.card select {
   padding: 0.75rem;
-  font-size: 1.2rem;
+  font-size:2rem;
   border-radius: 4px;
   border: none;
   background-color: rgba(0, 0, 0, 0.5);
@@ -708,8 +714,8 @@
   margin-right: 0.5rem; 
 }
 
-.input-group input::placeholder,
-.input-group select option {
+.card input::placeholder,
+.card select option {
   color: rgba(255, 255, 255, 0.7);
 }
 .workout-list {
@@ -778,6 +784,7 @@
   font-weight: 800;
   box-shadow: 0px 0px 14px -7px #f09819;
   
+  
  }
  
  .btn:hover {
@@ -791,6 +798,65 @@
   transform: scale(0.95);
  }
  
+ .modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  width: 50.875em;
+  height: 60.875em;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.074);
+  border: 1px solid rgba(255, 255, 255, 0.222);
+  border-radius: 0.7rem;
+  transition: all ease 0.3s;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+
+
+
+.card:hover {
+  box-shadow: 0px 0px 20px 1px #ffbb763f;
+  border: 1px solid rgba(255, 255, 255, 0.454);
+}
+.card button {
+  width: 430px; 
+  height: 40px; 
+  background-color: transparent;
+  border: 1px solid #000;
+  padding: 10px 50px;
+  outline: none;
+  color: #000;
+  font-family: 'IBM Plex Mono', monospace;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 20px;
+  font-weight:600;
+  
+}
+
+.card button:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.card button:active {
+  transform: scale(0.95);
+}
+
 
 
 

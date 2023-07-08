@@ -140,7 +140,7 @@ const WorkoutPlanner = () => {
 
       {showModal && (
         <div className="modal">
-          <div className="modal-content">
+          <div className="card">
             <h4>Add Exercise</h4>
             <label>Exercise name:</label>
             <input type="text" value={selectedExercise} onChange={handleExerciseChange} />
