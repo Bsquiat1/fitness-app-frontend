@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password_digest, setPassword_digest] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const navigate = useNavigate();
 
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
@@ -43,15 +46,17 @@ const Register = () => {
           setUsername('');
           setEmail('');
           setPassword_digest('');
+          // Navigate to the login page
+          navigate('/login');
         } else {
           // Registration failed
           console.log('Registration failed');
-          // Handle the registration failure, show error message, etc.
+          setErrorMessage('Registration failed. Please try again.');
         }
       })
       .catch((error) => {
         console.log('Registration error:', error);
-        // Handle any errors that occurred during registration
+        setErrorMessage('An error occurred during registration.');
       });
   };
 
@@ -62,15 +67,30 @@ const Register = () => {
           <p>Register</p>
           <form onSubmit={handleRegister}>
             <div className="user-box">
-              <input type="text" value={username} onChange={handleUsernameChange} required />
+              <input
+                type="text"
+                value={username}
+                onChange={handleUsernameChange}
+                required
+              />
               <label>Name:</label>
             </div>
             <div className="user-box">
-              <input type="email" value={email} onChange={handleEmailChange} required />
+              <input
+                type="email"
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
               <label>Email:</label>
             </div>
             <div className="user-box">
-              <input type="password" value={password_digest} onChange={handlePassword_digestChange} required />
+              <input
+                type="password"
+                value={password_digest}
+                onChange={handlePassword_digestChange}
+                required
+              />
               <label>Password:</label>
             </div>
             <a href="#" onClick={handleRegister}>
@@ -81,6 +101,13 @@ const Register = () => {
               Register
             </a>
           </form>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
+          <p>
+            Already have an account?{' '}
+            <Link to="/login" className="a2">
+              Login
+            </Link>
+          </p>
         </div>
       </div>
     </div>

@@ -5,6 +5,7 @@ function Login({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password_digest, setPassword_digest] = useState('');
   const navigate = useNavigate();
+  const [loginStatus, setLoginStatus] = useState(null);
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -36,10 +37,12 @@ function Login({ onLogin }) {
           console.log('Login successful');
           setEmail('');
           setPassword_digest('');
-          navigate('/home');
+          setLoginStatus(true);
+          navigate('/');
           return response.json();
         } else {
           console.log('Login failed');
+          setLoginStatus(false);
           
         }
       })
@@ -85,6 +88,12 @@ function Login({ onLogin }) {
               Login
             </a>
           </form>
+          {loginStatus === true && (
+            <p className="success-message">Login successful!</p>
+          )}
+          {loginStatus === false && (
+            <p className="error-message">Invalid email or password</p>
+          )}
           <p>
             Don't have an account?{' '}
             <Link to="/register" className="a2">
