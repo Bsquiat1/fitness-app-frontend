@@ -13,7 +13,7 @@ const SearchBar = () => {
   const handleSearch = () => {
     const searchQuery = searchTerm.trim().toLowerCase();
     if (searchQuery) {
-      fetch(`http://localhost:9292/exercises?search=${searchQuery}`)
+      fetch(`/exercises?search=${searchQuery}`)
         .then((response) => response.json())
         .then((data) => {
           const filteredExercises = data.results;

@@ -9,14 +9,14 @@ const WorkoutPlanner = () => {
   const [workouts, setWorkouts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:9292/workouts')
+    fetch('/workouts')
       .then((response) => response.json())
       .then((data) => setWorkouts(data))
       .catch((error) => console.log(error));
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:9292/exercises')
+    fetch('/exercises')
       .then((response) => response.json())
       .then((data) => setExercises(data))
       .catch((error) => console.log(error));
@@ -46,7 +46,7 @@ const WorkoutPlanner = () => {
   const handleAddExercise = () => {
     
   
-    fetch('http://localhost:9292/workouts', {
+    fetch('/workouts', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -83,7 +83,7 @@ const WorkoutPlanner = () => {
   const handleDeleteWorkout = (exerciseId) => {
     
 
-    fetch(`http://localhost:9292/workouts/${exerciseId}`, {
+    fetch(`/workouts/${exerciseId}`, {
       method: 'DELETE',
     })
       .then((response) => response.json())
@@ -96,7 +96,7 @@ const WorkoutPlanner = () => {
   const handleDeleteAllWorkouts = () => {
     setWorkouts([]);
 
-    fetch('http://localhost:9292/workouts', {
+    fetch('/workouts', {
       method: 'DELETE',
     })
       .then((response) => response.json())

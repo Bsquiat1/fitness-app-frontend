@@ -8,7 +8,7 @@ const Exercises = () => {
 
   useEffect(() => {
     
-    fetch('http://localhost:9292/exercises')
+    fetch('/exercises')
       .then((response) => response.json())
       .then((data) => setExercises(data))
       .catch((error) => console.log(error));
@@ -51,7 +51,7 @@ const Exercises = () => {
       <div className="container">
         {filteredExercises.map((exercise) => (
           <div className="box" key={exercise.id}>
-            <span className="title">{exercise.name}<button
+            <span className="title">{exercise.exercise_name}<button
                 onClick={() => handleLikeExercise(exercise.id)}
                 className={`like-button ${likedExercises.includes(exercise.id) ? 'liked' : ''}`}
               >
@@ -62,7 +62,7 @@ const Exercises = () => {
               
               <p>{exercise.description}</p>
               <span>Muscle Group: {exercise.muscle_group}</span>
-              <img src={exercise.image} alt={exercise.name} />
+              <img src={exercise.image} alt={exercise.exercise_name} />
               
             </div>
           </div>
