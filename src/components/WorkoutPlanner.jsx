@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const WorkoutPlanner = () => {
+const WorkoutPlanner = ({user}) => {
   const [exercises, setExercises] = useState([]);
   const [selectedExercise, setSelectedExercise] = useState('');
   const [sets, setSets] = useState(0);
@@ -108,8 +108,12 @@ const WorkoutPlanner = () => {
   };
 
   return (
+    
+    
     <div className="workout-planner">
-      <h2>Workout Planner</h2>
+      
+      <h2>{user.username}'s Workout Planner</h2>
+      
       <div className="input-group">
         
         

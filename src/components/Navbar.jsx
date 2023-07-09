@@ -1,9 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import SearchBar from './Searchbar';
 
-const Navbar = () => {
+const Navbar = ({ onLogout }) => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    fetch("/logout", {
+      method: "DELETE",
+    })
+      .then(() => {
+        onLogout();
+        navigate('/login');
+      })
+      .catch((error) => {
+        console.log("Logout error:", error);
+      });
+  };
+
   return (
     <nav className="navbar relative">
       <div className="navbar-header">
@@ -24,6 +39,9 @@ const Navbar = () => {
         </li>
         <li className="navbar-li">
           <Link to="/register" className="navbar-link">Register</Link>
+        </li>
+        <li className="navbar-li">
+          <button onClick={handleLogout} className="navbar-link">Logout</button>
         </li>
       </ul>
       <SearchBar />
