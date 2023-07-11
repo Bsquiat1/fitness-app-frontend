@@ -12,7 +12,7 @@ const Navbar = ({ onLogout }) => {
     })
       .then(() => {
         onLogout();
-        navigate('/login');
+        navigate("/login");
       })
       .catch((error) => {
         console.log("Logout error:", error);

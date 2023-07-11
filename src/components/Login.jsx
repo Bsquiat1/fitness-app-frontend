@@ -74,7 +74,7 @@ function Login({ onLogin }) {
             <div className="user-box">
               
               <input
-                type="password_digest"
+                type="password"
                 value={password_digest}
                 onChange={handlePassword_digestChange}
                 placeholder="Password."

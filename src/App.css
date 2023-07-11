@@ -505,12 +505,13 @@
   
   .heading {
     text-align: center;
-    background-image: url('boxing.jpg');
+    background-image: url('training.jpg');
     background-size: cover;
     background-position: center;
     padding: 20px;
     color: #0e0e0e;
     height: 500px; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
     
   }
   
@@ -547,7 +548,7 @@
     font-family: 'IBM Plex Mono', monospace;
     font-size: 100px;
     font-weight: bold;
-    color: #0d89f5;
+    color: #f1f3f5;
     margin-bottom: 0;
   }
   
@@ -865,6 +866,25 @@
 .card button:active {
   transform: scale(0.95);
 }
+.edit-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.edit-button i {
+  font-size: 1.5rem;
+  color: #030303;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.edit-button i:hover {
+  opacity: 1;
+}
+
 
 
 
